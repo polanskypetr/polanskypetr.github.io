@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petr Polanský — .NET Engineer</title>
+<meta name="description" content="Senior .NET engineer for contract work (B2B). C#, WPF/WinForms, SQL Server, REST APIs, Azure DevOps. Desktop app modernization and migration to modern .NET. Brno, Czechia / remote (CET).">
+<meta property="og:title" content="Petr Polanský — Senior .NET Contractor">
+<meta property="og:description" content="C#, WPF/WinForms, SQL Server, REST APIs, CI/CD. 8+ years of experience. Open to new contracts.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Petr Polanský",
+  "jobTitle": "Senior .NET Software Engineer",
+  "address": {"@type": "PostalAddress", "addressLocality": "Brno", "addressCountry": "CZ"},
+  "email": "mailto:petr.polansky@seznam.cz",
+  "sameAs": ["https://www.linkedin.com/in/petr-polansk%C3%BD-2950362a9/"],
+  "alumniOf": "Vysoké učení technické v Brně",
+  "knowsAbout": ["C#", ".NET", "WPF", "WinForms", "SQL Server", "REST API", "Azure DevOps", "PowerShell"]
+}
+</script>
+<style>
+:root {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --text: #1c1b19;
+  --muted: #5f5b53;
+  --line: #e4e0d6;
+  --accent: #2f5d50;
+  --accent-ink: #ffffff;
+  --accent-soft: #e3ece8;
+  --ok: #2e7d4f;
+  --maxw: 1080px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141513;
+    --surface: #1c1e1b;
+    --text: #ecebe6;
+    --muted: #a6a39a;
+    --line: #2d302b;
+    --accent: #8cc4b0;
+    --accent-ink: #10201a;
+    --accent-soft: #1f2d28;
+    --ok: #6fcf97;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141513; --surface: #1c1e1b; --text: #ecebe6; --muted: #a6a39a;
+  --line: #2d302b; --accent: #8cc4b0; --accent-ink: #10201a; --accent-soft: #1f2d28; --ok: #6fcf97;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 17px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+/* Language switch works without JavaScript: two hidden radios + CSS :has() */
+.lang-radio { position: absolute; opacity: 0; pointer-events: none; }
+body:has(#lang-cs:checked) [lang="en"],
+body:has(#lang-en:checked) [lang="cs"] { display: none !important; }
+/* Fallback for very old browsers without :has() — JS sets data-lang */
+html[data-lang="cs"] body [lang="en"],
+html[data-lang="en"] body [lang="cs"] { display: none !important; }
+
+a { color: var(--accent); }
+h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 600; line-height: 1.15; margin: 0; }
+h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); margin-bottom: 0.4em; }
+h3 { font-size: 1.15rem; font-family: Inter, sans-serif; }
+p { margin: 0 0 1em; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+@media (max-width: 600px) { .wrap { padding: 0 16px; } }
+
+/* Nav */
+nav {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+.brand { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 1.1rem; text-decoration: none; color: var(--text); }
+.nav-links { display: flex; gap: 22px; align-items: center; font-size: 0.95rem; }
+.nav-links a { color: var(--muted); text-decoration: none; }
+.nav-links a:hover { color: var(--text); }
+@media (max-width: 720px) { .nav-links a.hide-sm { display: none; } }
+.lang-switch { display: inline-flex; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 3px; }
+.lang-switch label {
+  color: var(--muted); cursor: pointer; user-select: none;
+  border-radius: 999px; padding: 4px 12px; font: 600 0.85rem Inter, sans-serif;
+}
+body:has(#lang-en:checked) label[for="lang-en"],
+body:has(#lang-cs:checked) label[for="lang-cs"] { background: var(--accent); color: var(--accent-ink); }
+body:has(.lang-radio:focus-visible) .lang-switch { outline: 2px solid var(--accent); outline-offset: 2px; }
+.js-only { display: none !important; }
+html.js .js-only { display: inline-flex !important; }
+
+/* Hero */
+.hero { padding: 88px 0 72px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.85rem; font-weight: 500; color: var(--text);
+  background: var(--surface); border: 1px solid var(--line);
+  padding: 6px 14px; border-radius: 999px; margin-bottom: 28px;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 20%, transparent); }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); letter-spacing: -0.01em; max-width: 16ch; }
+.hero .lead { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--muted); max-width: 60ch; margin: 24px 0 36px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 22px; border-radius: 10px; font-weight: 600; font-size: 1rem;
+  text-decoration: none; border: 1px solid transparent; cursor: pointer;
+}
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-ghost { border-color: var(--line); color: var(--text); background: var(--surface); }
+.btn-ghost:hover { border-color: var(--muted); }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-top: 64px; }
+.stat { background: var(--surface); padding: 22px 20px; }
+.stat b { display: block; font-family: Fraunces, Georgia, serif; font-size: 2rem; font-weight: 600; line-height: 1.1; }
+.stat span { color: var(--muted); font-size: 0.9rem; }
+@media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+/* Sections */
+section { padding: 80px 0; border-top: 1px solid var(--line); }
+.section-intro { color: var(--muted); max-width: 62ch; margin-bottom: 40px; }
+
+.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 900px) { .services { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .services { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px; }
+.card .icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 18px; }
+.card .icon svg { width: 22px; height: 22px; }
+.card h3 { margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 0.97rem; margin: 0; }
+
+/* Experience */
+.timeline { display: grid; gap: 0; }
+.job { display: grid; grid-template-columns: 200px 1fr; gap: 32px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.job:last-child { border-bottom: 0; }
+.job .when { color: var(--muted); font-size: 0.92rem; font-variant-numeric: tabular-nums; }
+.job h3 { margin-bottom: 2px; }
+.job .org { color: var(--muted); margin-bottom: 12px; font-size: 0.95rem; }
+.job ul { margin: 0; padding-left: 1.1em; }
+.job li { margin-bottom: 6px; }
+@media (max-width: 720px) { .job { grid-template-columns: 1fr; gap: 6px; } }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 48px; }
+@media (max-width: 720px) { .skills { grid-template-columns: 1fr; } }
+.skills h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 10px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 5px 11px; font-size: 0.92rem; }
+
+/* How I work */
+.terms { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+@media (max-width: 900px) { .terms { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .terms { grid-template-columns: 1fr; } }
+.term b { display: block; margin-bottom: 4px; }
+.term span { color: var(--muted); font-size: 0.95rem; }
+
+/* Contact */
+.contact { background: var(--accent); color: var(--accent-ink); border-radius: 20px; padding: 56px 48px; }
+.contact h2 { color: var(--accent-ink); }
+.contact p { opacity: 0.88; max-width: 56ch; }
+.contact .btn-primary { background: var(--accent-ink); color: var(--accent); }
+.contact .btn-ghost { background: transparent; color: var(--accent-ink); border-color: color-mix(in srgb, var(--accent-ink) 40%, transparent); }
+.contact-lines { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 28px; font-size: 0.95rem; }
+.contact-lines a { color: var(--accent-ink); }
+@media (max-width: 600px) { .contact { padding: 36px 22px; } }
+
+footer { padding: 36px 0 48px; color: var(--muted); font-size: 0.88rem; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+.copied { font-size: 0.85rem; opacity: 0; transition: opacity .2s; align-self: center; }
+.copied.show { opacity: 1; }
+</style>
+</head>
+<body>
+<input type="radio" name="lang" id="lang-en" class="lang-radio" checked aria-label="English">
+<input type="radio" name="lang" id="lang-cs" class="lang-radio" aria-label="Čeština">
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="brand">Petr Polanský</a>
+    <div class="nav-links">
+      <a href="#sluzby" class="hide-sm"><span lang="cs">Služby</span><span lang="en">Services</span></a>
+      <a href="#praxe" class="hide-sm"><span lang="cs">Praxe</span><span lang="en">Experience</span></a>
+      <a href="#kontakt"><span lang="cs">Kontakt</span><span lang="en">Contact</span></a>
+      <div class="lang-switch" aria-label="Language">
+        <label for="lang-en">EN</label>
+        <label for="lang-cs">CZ</label>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="badge"><span class="dot"></span>
+      <span lang="cs">Otevřený novým kontraktům · B2B · remote</span>
+      <span lang="en">Open to new contracts · B2B · remote</span>
+    </div>
+    <h1>
+      <span lang="cs">Senior .NET vývojář pro vaše kritické aplikace</span>
+      <span lang="en">Senior .NET engineer for your business-critical apps</span>
+    </h1>
+    <p class="lead">
+      <span lang="cs">8+ let udržuji, rozvíjím a modernizuji desktopové aplikace v C#, WPF a WinForms nad SQL Serverem. Integrace přes REST API, automatizace, CI/CD — a zkušenost s vedením týmu a jednáním s klienty.</span>
+      <span lang="en">8+ years maintaining, extending and modernizing desktop applications in C#, WPF and WinForms on SQL Server. REST integrations, automation, CI/CD — plus hands-on experience leading a team and working directly with clients.</span>
+    </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="mailto:petr.polansky@seznam.cz?subject=Kontrakt%20%2F%20Contract">
+        <span lang="cs">Napište mi</span><span lang="en">Get in touch</span> →
+      </a>
+      <a class="btn btn-ghost" href="#praxe"><span lang="cs">Zobrazit praxi</span><span lang="en">See experience</span></a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>8+</b><span lang="cs">let praxe v .NET</span><span lang="en">years in .NET</span></div>
+      <div class="stat"><b>50+</b><span lang="cs">zákazníků, kterým jsem dodával releasy</span><span lang="en">customers receiving my releases</span></div>
+      <div class="stat"><b>7</b><span lang="cs">vývojářů v týmu, který jsem vedl</span><span lang="en">developers on the team I led</span></div>
+      <div class="stat"><b>CET</b><span lang="cs">Brno · plně remote</span><span lang="en">Brno · fully remote</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="sluzby">
+  <div class="wrap">
+    <h2><span lang="cs">S čím vám pomůžu</span><span lang="en">How I can help</span></h2>
+    <p class="section-intro">
+      <span lang="cs">Nejvíc hodnoty přináším tam, kde běží dlouholetý software, na kterém stojí byznys — a je potřeba ho bezpečně rozvíjet, stabilizovat nebo posunout na moderní technologie.</span>
+      <span lang="en">I add the most value where long-lived software runs the business — and needs to be safely extended, stabilized or moved to modern technology.</span>
+    </p>
+    <div class="services">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3><span lang="cs">Desktopové aplikace</span><span lang="en">Desktop applications</span></h3>
+        <p><span lang="cs">Vývoj a údržba WPF (MVVM) a WinForms aplikací — nové funkce, refaktoring, opravy produkčních chyb.</span><span lang="en">Building and maintaining WPF (MVVM) and WinForms apps — new features, refactoring, production bug fixing.</span></p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></div>
+        <h3><span lang="cs">Migrace na moderní .NET</span><span lang="en">Migration to modern .NET</span></h3>
+        <p><span lang="cs">Přechod z .NET Frameworku na moderní .NET — plán, postupná migrace bez výpadku a bez přepisování od nuly.</span><span lang="en">Moving from .NET Framework to modern .NET — roadmap and incremental migration without downtime or a full rewrite.</span></p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+        <h3>SQL Server</h3>
+        <p><span lang="cs">T-SQL, návrh schématu, výkon, zálohy a obnova, upgrady verzí včetně automatizace obnovy po upgradu na SQL Server 2022.</span><span lang="en">T-SQL, schema design, performance, backup/restore, version upgrades — including recovery automation after SQL Server 2022 upgrades.</span></p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.6 10.5l6.8-3M8.6 13.5l6.8 3"/></svg></div>
+        <h3><span lang="cs">Integrace a REST API</span><span lang="en">Integrations &amp; REST APIs</span></h3>
+        <p><span lang="cs">Návrh a implementace API v ASP.NET Core, napojení na systémy třetích stran a interní služby.</span><span lang="en">Designing and building ASP.NET Core APIs, connecting to third-party systems and internal services.</span></p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h4l2-5 2 10 2-5h4"/></svg></div>
+        <h3><span lang="cs">CI/CD a automatizace</span><span lang="en">CI/CD &amp; automation</span></h3>
+        <p><span lang="cs">Azure DevOps pipelines, NuGet feedy, GitHub Actions, PowerShell skripty a plánované úlohy, které šetří ruční práci.</span><span lang="en">Azure DevOps pipelines, NuGet feeds, GitHub Actions, PowerShell scripts and scheduled jobs that remove manual work.</span></p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3 3 0 0 1 0 5.8M21 20c0-2.6-1.6-4.8-4-5.6"/></svg></div>
+        <h3><span lang="cs">Tech lead / release management</span><span lang="en">Tech lead / release management</span></h3>
+        <p><span lang="cs">Vedení vývojářů, code review, mentoring, roadmapa a zodpovědnost za release od buildu až k zákazníkovi.</span><span lang="en">Leading developers, code reviews, mentoring, roadmap ownership and end-to-end release responsibility.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="praxe">
+  <div class="wrap">
+    <h2><span lang="cs">Praxe</span><span lang="en">Experience</span></h2>
+    <p class="section-intro">
+      <span lang="cs">Většinu kariéry jsem strávil na MES (Manufacturing Execution System) pro velké průmyslové výrobce — software, který nesmí stát.</span>
+      <span lang="en">Most of my career has been spent on an MES (Manufacturing Execution System) for large industrial manufacturers — software that can't afford to go down.</span>
+    </p>
+    <div class="timeline">
+      <div class="job">
+        <div class="when">03/2025 – 09/2026</div>
+        <div>
+          <h3><span lang="cs">Vedoucí vývoje softwaru</span><span lang="en">Head of Software Development</span></h3>
+          <div class="org">Act-in CZ, s.r.o.</div>
+          <ul lang="cs">
+            <li>Vedení týmu 7 vývojářů: plánování, priority, code review, mentoring juniorů.</li>
+            <li>Kompletní release proces: build pipelines v Azure DevOps, verzování, NuGet balíčky a dodávky 50+ zákazníkům.</li>
+            <li>Technologická roadmapa včetně migrace z .NET Frameworku na moderní .NET.</li>
+            <li>Přímá spolupráce s klienty a netechnickými stakeholdery na rozsahu, prioritách a termínech.</li>
+          </ul>
+          <ul lang="en">
+            <li>Led a team of 7 developers: planning, prioritization, code reviews, mentoring juniors.</li>
+            <li>Owned the end-to-end release process: Azure DevOps build pipelines, versioning, NuGet packages and delivery to 50+ customers.</li>
+            <li>Defined and drove the technology roadmap, including migration from .NET Framework to modern .NET.</li>
+            <li>Worked directly with clients and non-technical stakeholders on scope, priorities and timelines.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">10/2018 – 03/2025</div>
+        <div>
+          <h3><span lang="cs">Software Engineer (.NET desktop)</span><span lang="en">Software Engineer (.NET desktop)</span></h3>
+          <div class="org">Act-in CZ, s.r.o.</div>
+          <ul lang="cs">
+            <li>Vývoj a údržba kritických Windows aplikací pro výrobu v C#, WPF (MVVM) a WinForms nad MS SQL Serverem.</li>
+            <li>Návrh a integrace REST API mezi aplikacemi a dalšími systémy.</li>
+            <li>Automatizace vývojových prostředí a údržby databází v PowerShellu a T-SQL.</li>
+            <li>Řešení produkčních problémů napříč aplikací, databází a infrastrukturou (oprávnění, obnovy, VPN, package feedy).</li>
+          </ul>
+          <ul lang="en">
+            <li>Maintained and enhanced business-critical Windows applications for manufacturing in C#, WPF (MVVM) and WinForms on SQL Server.</li>
+            <li>Built and integrated REST APIs between the applications and other systems.</li>
+            <li>Automated developer environments and database maintenance with PowerShell and T-SQL.</li>
+            <li>Resolved production issues across application, database and infrastructure (permissions, restores, VPN, package feeds).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">07/2017 – 09/2017</div>
+        <div>
+          <h3><span lang="cs">Junior vývojář aplikací</span><span lang="en">Junior Application Developer</span></h3>
+          <div class="org">STAPRO s.r.o.</div>
+          <ul lang="cs"><li>Vývoj funkcí WPF aplikace pro lékaře (nemocniční informační systém).</li></ul>
+          <ul lang="en"><li>Developed features for a WPF desktop application used by physicians (healthcare information system).</li></ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="when">2012 – 2018</div>
+        <div>
+          <h3><span lang="cs">Ing., Informační technologie</span><span lang="en">Master’s degree, Information Technology</span></h3>
+          <div class="org"><span lang="cs">Vysoké učení technické v Brně</span><span lang="en">Brno University of Technology</span></div>
+          <ul lang="cs"><li>Diplomová práce: Mobilní aplikace pro podporu týmové spolupráce.</li></ul>
+          <ul lang="en"><li>Thesis: Mobile application supporting team collaboration.</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dovednosti">
+  <div class="wrap">
+    <h2><span lang="cs">Technologie</span><span lang="en">Technology</span></h2>
+    <p class="section-intro"><span lang="cs">Nástroje, se kterými pracuji denně.</span><span lang="en">The tools I work with every day.</span></p>
+    <div class="skills">
+      <div><h3>C# / .NET</h3><div class="tags"><span class="tag">C#</span><span class="tag">.NET Framework</span><span class="tag">.NET 8+</span><span class="tag">ASP.NET Core</span><span class="tag">Blazor</span><span class="tag">Web API</span><span class="tag">Entity Framework</span><span class="tag">LINQ</span><span class="tag">async</span></div></div>
+      <div><h3>Desktop</h3><div class="tags"><span class="tag">WPF</span><span class="tag">MVVM</span><span class="tag">WinForms</span><span class="tag" lang="cs">modernizace legacy aplikací</span><span class="tag" lang="en">legacy modernization</span></div></div>
+      <div><h3><span lang="cs">Databáze</span><span lang="en">Databases</span></h3><div class="tags"><span class="tag">MS SQL Server</span><span class="tag">T-SQL</span><span class="tag" lang="cs">výkon</span><span class="tag" lang="en">performance</span><span class="tag">backup / restore</span><span class="tag">NoSQL</span><span class="tag">Firebase</span></div></div>
+      <div><h3>DevOps &amp; cloud</h3><div class="tags"><span class="tag">Azure DevOps</span><span class="tag">GitHub Actions</span><span class="tag">NuGet feeds</span><span class="tag">PowerShell</span><span class="tag">Docker</span><span class="tag">Git / TFS</span><span class="tag">Microsoft Azure</span></div></div>
+      <div><h3><span lang="cs">Kvalita a proces</span><span lang="en">Quality &amp; process</span></h3><div class="tags"><span class="tag">unit testing</span><span class="tag">code review</span><span class="tag">release management</span><span class="tag">Scrum</span></div></div>
+      <div><h3><span lang="cs">Nástroje</span><span lang="en">Tools</span></h3><div class="tags"><span class="tag">Visual Studio</span><span class="tag">VS Code</span><span class="tag" lang="cs">AI vývoj (Claude Code)</span><span class="tag" lang="en">AI-assisted dev (Claude Code)</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="spoluprace">
+  <div class="wrap">
+    <h2><span lang="cs">Jak spolupracuji</span><span lang="en">Working together</span></h2>
+    <p class="section-intro"><span lang="cs">Pracuji samostatně a za dodané řešení přebírám plnou zodpovědnost.</span><span lang="en">I work independently and take full ownership of what I deliver.</span></p>
+    <div class="terms">
+      <div class="term card"><b><span lang="cs">Forma</span><span lang="en">Engagement</span></b><span lang="cs">Kontrakt na IČO (B2B), full-time i dlouhodobě</span><span lang="en">B2B contract, full-time, long-term welcome</span></div>
+      <div class="term card"><b><span lang="cs">Dostupnost</span><span lang="en">Availability</span></b><span lang="cs">Full-time, začátek dle domluvy</span><span lang="en">Full-time, start date by arrangement</span></div>
+      <div class="term card"><b><span lang="cs">Místo</span><span lang="en">Location</span></b><span lang="cs">Remote (CET), osobně v Brně dle potřeby</span><span lang="en">Remote (CET), on-site in Brno as needed</span></div>
+      <div class="term card"><b><span lang="cs">Jazyky</span><span lang="en">Languages</span></b><span lang="cs">Čeština (rodilý), angličtina (B2, denní komunikace)</span><span lang="en">Czech (native), English (B2, daily use)</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" style="border-top:0; padding-top:24px;">
+  <div class="wrap">
+    <div class="contact">
+      <h2><span lang="cs">Máte projekt?</span><span lang="en">Have a project?</span></h2>
+      <p>
+        <span lang="cs">Napište mi pár vět o projektu, technologiích a očekávaném rozsahu. Odpovím do 24 hodin a rád se domluvím na krátkém callu.</span>
+        <span lang="en">Send me a few lines about the project, the stack and the expected scope. I’ll reply within 24 hours and am happy to set up a short call.</span>
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="mailto:petr.polansky@seznam.cz?subject=Kontrakt%20%2F%20Contract">petr.polansky@seznam.cz</a>
+        <button class="btn btn-ghost js-only" id="copyEmail"><span lang="cs">Zkopírovat e-mail</span><span lang="en">Copy email</span></button>
+        <span class="copied" id="copiedMsg"><span lang="cs">Zkopírováno ✓</span><span lang="en">Copied ✓</span></span>
+      </div>
+      <div class="contact-lines">
+        <a href="tel:+420721428743">+420 721 428 743</a>
+        <a href="https://www.linkedin.com/in/petr-polansk%C3%BD-2950362a9/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Brno, CZ</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Petr Polanský</span>
+    <span><span lang="cs">Reference na vyžádání</span><span lang="en">References available on request</span></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+  // The switch itself is pure CSS; JS only adds remembering, ?lang=cs and the page title.
+  function setLang(l, remember) {
+    document.getElementById('lang-' + l).checked = true;
+    root.setAttribute('data-lang', l);
+    root.setAttribute('lang', l);
+    document.title = l === 'cs' ? 'Petr Polanský — .NET vývojář' : 'Petr Polanský — .NET Engineer';
+    if (remember) { try { localStorage.setItem('lang', l); } catch (e) {} }
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  var initial = new URLSearchParams(location.search).get('lang') || saved || 'en';
+  setLang(initial === 'cs' ? 'cs' : 'en', false);
+  document.querySelectorAll('.lang-radio').forEach(function (r) {
+    r.addEventListener('change', function () { if (r.checked) setLang(r.id.slice(5), true); });
+  });
+
+  document.getElementById('copyEmail').addEventListener('click', function () {
+    var msg = document.getElementById('copiedMsg');
+    var done = function () { msg.classList.add('show'); setTimeout(function () { msg.classList.remove('show'); }, 1800); };
+    if (navigator.clipboard) navigator.clipboard.writeText('petr.polansky@seznam.cz').then(done, done); else done();
+  });
+})();
+</script>
+</body>
+</html>
